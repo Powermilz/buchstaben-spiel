@@ -46,30 +46,53 @@
 
 <body>
 
-  <h1>A</h1>
+  <h1 id="buchstabe">A</h1>
 
-  <h2>AFFE</h2>
+  <h2 id="wort">AFFE</h2>
 
   <img
+    id="bild"
     src="a-affe.png"
     alt="A wie Affe"
   >
 
   <p>Willkommen beim Buchstaben-Spiel!</p>
 
-  <button onclick="sprechen('Aaaaa')">
+  <button id="button-buchstabe">
     🔤 BUCHSTABE
   </button>
 
-  <button onclick="sprechen('A wie Affe')">
+  <button id="button-wort">
     🐒 WORT
   </button>
 
-  <button onclick="sprechen('Anton der Affe liebt Bananen. Heute sucht er seine allergrößte Banane. Kannst du etwas finden, das auch mit A beginnt?')">
+  <button id="button-geschichte">
     📖 GESCHICHTE
   </button>
 
   <script>
+    const karten = {
+      A: {
+        buchstabe: "A",
+        wort: "AFFE",
+        bild: "a-affe.png",
+        laut: "Aaaaa",
+        wortText: "A wie Affe",
+        geschichte:
+          "Anton der Affe liebt Bananen. Heute sucht er seine allergrößte Banane. Kannst du etwas finden, das auch mit A beginnt?"
+      },
+
+      F: {
+        buchstabe: "F",
+        wort: "FURZ",
+        bild: "f-furz.png",
+        laut: "Fffff",
+        wortText: "F wie Furz",
+        geschichte:
+          "Freddy der Frosch hat einen riesigen Furz gelassen. Kannst du ein anderes Wort finden, das mit F beginnt?"
+      }
+    };
+
     function sprechen(text) {
       window.speechSynthesis.cancel();
 
@@ -82,12 +105,28 @@
     }
 
     const parameter = new URLSearchParams(window.location.search);
-
     const karte = parameter.get("karte");
 
-    if (karte) {
-      console.log("Aufgerufene Karte:", karte);
-    }
+    const daten = karten[karte] || karten.A;
+
+    document.getElementById("buchstabe").textContent = daten.buchstabe;
+    document.getElementById("wort").textContent = daten.wort;
+
+    const bild = document.getElementById("bild");
+    bild.src = daten.bild;
+    bild.alt = daten.buchstabe + " wie " + daten.wort;
+
+    document.getElementById("button-buchstabe").onclick = function() {
+      sprechen(daten.laut);
+    };
+
+    document.getElementById("button-wort").onclick = function() {
+      sprechen(daten.wortText);
+    };
+
+    document.getElementById("button-geschichte").onclick = function() {
+      sprechen(daten.geschichte);
+    };
   </script>
 
 </body>

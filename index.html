@@ -43,16 +43,25 @@
   
   <p>Willkommen beim Buchstaben-Spiel!</p>
 
-  <button onclick="vorlesen()">🔊 VORLESEN</button>
+  <button onclick="sprechen('Aaaaa')">🔤 BUCHSTABE</button>
 
-  <script>
-    function vorlesen() {
-      const text = "Aaaa. A wie Affe! Anton der Affe liebt Bananen.";
-      const stimme = new SpeechSynthesisUtterance(text);
-      stimme.lang = "de-DE";
-      window.speechSynthesis.speak(stimme);
-    }
-  </script>
+<button onclick="sprechen('A wie Affe')">🐒 WORT</button>
+
+<button onclick="sprechen('Anton der Affe liebt Bananen. Heute sucht er seine allergrößte Banane. Kannst du etwas finden, das auch mit A beginnt?')">
+  📖 GESCHICHTE
+</button>
+
+<script>
+  function sprechen(text) {
+    window.speechSynthesis.cancel();
+
+    const stimme = new SpeechSynthesisUtterance(text);
+    stimme.lang = "de-DE";
+    stimme.rate = 0.85;
+
+    window.speechSynthesis.speak(stimme);
+  }
+</script>
 
 </body>
 </html>

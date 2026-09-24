@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buchstaben-Spiel</title>
+</head>
+
+<body>
+
+  <h1>A</h1>
+  <h2>AFFE</h2>
+
+  <p>Willkommen beim Buchstaben-Spiel!</p>
+
+  <button onclick="vorlesen()">🔊 VORLESEN</button>
+
+  <script>
+    function vorlesen() {
+      const text = "Aaaa. A wie Affe! Anton der Affe liebt Bananen.";
+      const stimme = new SpeechSynthesisUtterance(text);
+      stimme.lang = "de-DE";
+      window.speechSynthesis.speak(stimme);
+    }
+  </script>
+
+</body>
+</html>

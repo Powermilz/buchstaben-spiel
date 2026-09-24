@@ -1,76 +1,95 @@
 <!DOCTYPE html>
 <html lang="de">
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background: #fff8e7;
-    margin: 0;
-    padding: 30px 15px;
-  }
 
-  h1 {
-    font-size: 80px;
-    margin: 0;
-  }
-
-  h2 {
-    font-size: 36px;
-    margin: 5px 0 20px;
-  }
-
-  button {
-    font-size: 24px;
-    font-weight: bold;
-    padding: 18px 30px;
-    border-radius: 18px;
-    border: none;
-    cursor: pointer;
-  }
-</style>
-  <head>
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mein Buchstaben-Spiel</title>
+
+  <title>Mein Buchstaben-Spiel</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #fff8e7;
+      margin: 0;
+      padding: 30px 15px;
+    }
+
+    h1 {
+      font-size: 80px;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 36px;
+      margin: 5px 0 20px;
+    }
+
+    img {
+      max-width: 350px;
+      width: 90%;
+      height: auto;
+    }
+
+    button {
+      font-size: 24px;
+      font-weight: bold;
+      padding: 18px 30px;
+      margin: 8px;
+      border-radius: 18px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body>
 
   <h1>A</h1>
+
   <h2>AFFE</h2>
 
-  <img src="a-affe.png" alt="A wie Affe" style="max-width: 350px; width: 90%; height: auto;">
-  
+  <img
+    src="a-affe.png"
+    alt="A wie Affe"
+  >
+
   <p>Willkommen beim Buchstaben-Spiel!</p>
 
-  <button onclick="sprechen('Aaaaa')">🔤 BUCHSTABE</button>
+  <button onclick="sprechen('Aaaaa')">
+    🔤 BUCHSTABE
+  </button>
 
-<button onclick="sprechen('A wie Affe')">🐒 WORT</button>
+  <button onclick="sprechen('A wie Affe')">
+    🐒 WORT
+  </button>
 
-<button onclick="sprechen('Anton der Affe liebt Bananen. Heute sucht er seine allergrößte Banane. Kannst du etwas finden, das auch mit A beginnt?')">
-  📖 GESCHICHTE
-</button>
+  <button onclick="sprechen('Anton der Affe liebt Bananen. Heute sucht er seine allergrößte Banane. Kannst du etwas finden, das auch mit A beginnt?')">
+    📖 GESCHICHTE
+  </button>
 
-<script>
- <script>
-  function sprechen(text) {
-    window.speechSynthesis.cancel();
+  <script>
+    function sprechen(text) {
+      window.speechSynthesis.cancel();
 
-    const stimme = new SpeechSynthesisUtterance(text);
-    stimme.lang = "de-DE";
-    stimme.rate = 0.85;
+      const stimme = new SpeechSynthesisUtterance(text);
 
-    window.speechSynthesis.speak(stimme);
-  }
+      stimme.lang = "de-DE";
+      stimme.rate = 0.85;
 
-  const parameter = new URLSearchParams(window.location.search);
-  const karte = parameter.get("karte");
+      window.speechSynthesis.speak(stimme);
+    }
 
-  if (karte) {
-    console.log("Aufgerufene Karte:", karte);
-  }
-</script>
-</script>
+    const parameter = new URLSearchParams(window.location.search);
+
+    const karte = parameter.get("karte");
+
+    if (karte) {
+      console.log("Aufgerufene Karte:", karte);
+    }
+  </script>
 
 </body>
+
 </html>

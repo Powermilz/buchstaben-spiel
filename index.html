@@ -30,12 +30,17 @@
       max-width: 350px;
       width: 90%;
       height: auto;
+      border-radius: 20px;
+    }
+
+    p {
+      font-size: 20px;
     }
 
     button {
-      font-size: 24px;
+      font-size: 22px;
       font-weight: bold;
-      padding: 18px 30px;
+      padding: 18px 25px;
       margin: 8px;
       border-radius: 18px;
       border: none;
@@ -56,23 +61,26 @@
     alt="A wie Affe"
   >
 
-  <p>Willkommen beim Buchstaben-Spiel!</p>
+  <p>Hör zu und entdecke den Buchstaben!</p>
 
   <button id="button-buchstabe">
     🔤 BUCHSTABE
   </button>
 
   <button id="button-wort">
-    🐒 WORT
+    🔊 WORT
   </button>
 
   <button id="button-geschichte">
     📖 GESCHICHTE
   </button>
 
+
   <script>
+
     const karten = {
-      A: {
+
+      AFFE: {
         buchstabe: "A",
         wort: "AFFE",
         bild: "a-affe.png",
@@ -82,51 +90,324 @@
           "Anton der Affe liebt Bananen. Heute sucht er seine allergrößte Banane. Kannst du etwas finden, das auch mit A beginnt?"
       },
 
-      F: {
+
+      DRACHE: {
+        buchstabe: "D",
+        wort: "DRACHE",
+        bild: "d-drache.png",
+        laut: "Ddddd",
+        wortText: "D wie Drache",
+        geschichte:
+          "Dario der Drache fährt heute auf seinen Rollschuhen. Dabei saust er so schnell, dass ihm fast die Flügel wackeln. Kennst du noch ein Wort mit D?"
+      },
+
+
+      ELEFANT: {
+        buchstabe: "E",
+        wort: "ELEFANT",
+        bild: "e-elefant.png",
+        laut: "Eeeee",
+        wortText: "E wie Elefant",
+        geschichte:
+          "Emil der Elefant fährt auf winzigen Rollschuhen. Mit seinem langen Rüssel versucht er dabei das Gleichgewicht zu halten. Findest du noch ein Wort mit E?"
+      },
+
+
+      ESEL: {
+        buchstabe: "E",
+        wort: "ESEL",
+        bild: "e-esel.png",
+        laut: "Eeeee",
+        wortText: "E wie Esel",
+        geschichte:
+          "Egon der Esel übt einen Handstand. Seine Beine wackeln in der Luft, aber er fällt nicht um. Kennst du noch ein Wort mit E?"
+      },
+
+
+      FURZ: {
         buchstabe: "F",
         wort: "FURZ",
         bild: "f-furz.png",
         laut: "Fffff",
         wortText: "F wie Furz",
         geschichte:
-          "Freddy der Frosch hat einen riesigen Furz gelassen. Kannst du ein anderes Wort finden, das mit F beginnt?"
+          "Freddy der Frosch hat einen riesigen Furz gelassen. Jetzt schaut er ganz unschuldig. Kannst du ein anderes Wort finden, das mit F beginnt?"
+      },
+
+
+      GEIST: {
+        buchstabe: "G",
+        wort: "GEIST",
+        bild: "g-geist.png",
+        laut: "Ggggg",
+        wortText: "G wie Geist",
+        geschichte:
+          "Gustav der Geist wollte eigentlich spuken. Doch heute hat er lieber Taucherbrille und Schnorchel angezogen. Kennst du noch ein Wort mit G?"
+      },
+
+
+      HAI: {
+        buchstabe: "H",
+        wort: "HAI",
+        bild: "h-hai.png",
+        laut: "Hhhhh",
+        wortText: "H wie Hai",
+        geschichte:
+          "Hugo der Hai schwimmt durch das blaue Meer. Heute grinst er besonders breit. Kannst du etwas nennen, das ebenfalls mit H beginnt?"
+      },
+
+
+      IGEL: {
+        buchstabe: "I",
+        wort: "IGEL",
+        bild: "i-igel.png",
+        laut: "Iiiii",
+        wortText: "I wie Igel",
+        geschichte:
+          "Ingo der Igel hat sein Schweißband angezogen und seine Laufschuhe geschnürt. Jetzt ist er bereit für sein Rennen. Kennst du noch ein Wort mit I?"
+      },
+
+
+      KOENIG: {
+        buchstabe: "K",
+        wort: "KÖNIG",
+        bild: "k-koenig.png",
+        laut: "Kkkkk",
+        wortText: "K wie König",
+        geschichte:
+          "Karl der König trägt heute eine viel zu große Krone. Sie ist so riesig, dass sie fast herunterfällt. Fällt dir noch ein Wort mit K ein?"
+      },
+
+
+      LOEWE: {
+        buchstabe: "L",
+        wort: "LÖWE",
+        bild: "l-loewe.png",
+        laut: "Lllll",
+        wortText: "L wie Löwe",
+        geschichte:
+          "Leo der Löwe hat eine riesige Mähne und ein großes Grinsen. Kannst du einmal wie ein Löwe brüllen und danach ein anderes Wort mit L nennen?"
+      },
+
+
+      NUDELN: {
+        buchstabe: "N",
+        wort: "NUDELN",
+        bild: "n-nudeln.png",
+        laut: "Nnnnn",
+        wortText: "N wie Nudeln",
+        geschichte:
+          "Nora liebt Nudeln. Heute haben sich ihre Nudeln sogar zu einem riesigen N verbogen. Kennst du noch ein Wort mit N?"
+      },
+
+
+      OMA: {
+        buchstabe: "O",
+        wort: "OMA",
+        bild: "o-oma.png",
+        laut: "Ooooo",
+        wortText: "O wie Oma",
+        geschichte:
+          "Olga die Oma ist heute besonders cool unterwegs. Mit Turnschuhen, Schmuck und ihrer großen Brille zeigt sie allen das große O. Findest du noch ein Wort mit O?"
+      },
+
+
+      PIZZA: {
+        buchstabe: "P",
+        wort: "PIZZA",
+        bild: "p-pizza.png",
+        laut: "Ppppp",
+        wortText: "P wie Pizza",
+        geschichte:
+          "Paul die Pizza grinst heute besonders breit. Käse und Belag formen zusammen ein großes P. Welche Pizza magst du am liebsten und kennst du noch ein Wort mit P?"
+      },
+
+
+      RATTE: {
+        buchstabe: "R",
+        wort: "RATTE",
+        bild: "r-ratte.png",
+        laut: "Rrrrr",
+        wortText: "R wie Ratte",
+        geschichte:
+          "Rudi die Ratte trägt seine Basecap nach hinten und eine dicke Goldkette. Er hält sich für die coolste Ratte der Stadt. Kennst du noch ein Wort mit R?"
+      },
+
+
+      SCHEISSE: {
+        buchstabe: "SCH",
+        wort: "SCHEISSE",
+        bild: "sch-scheisse.png",
+        laut: "Schhhhh",
+        wortText: "Sch wie Scheisse",
+        geschichte:
+          "Schhhh ist ein besonderer Laut. Und heute versteckt er sich ausgerechnet in einem großen Haufen Scheisse. Kennst du noch ein Wort, das mit Sch beginnt?"
+      },
+
+
+      UNGEHEUER: {
+        buchstabe: "U",
+        wort: "UNGEHEUER",
+        bild: "u-ungeheuer.png",
+        laut: "Uuuuu",
+        wortText: "U wie Ungeheuer",
+        geschichte:
+          "Udo das Ungeheuer macht heute einen riesigen Spagat. Dabei streckt es beide Arme hoch und sieht fast selbst wie ein U aus. Kennst du noch ein Wort mit U?"
       }
+
     };
 
+
     function sprechen(text) {
+
       window.speechSynthesis.cancel();
 
-      const stimme = new SpeechSynthesisUtterance(text);
+      const stimme =
+        new SpeechSynthesisUtterance(text);
 
       stimme.lang = "de-DE";
+
       stimme.rate = 0.85;
 
       window.speechSynthesis.speak(stimme);
+
     }
 
-    const parameter = new URLSearchParams(window.location.search);
-    const karte = parameter.get("karte");
 
-    const daten = karten[karte] || karten.A;
+    const parameter =
+      new URLSearchParams(window.location.search);
 
-    document.getElementById("buchstabe").textContent = daten.buchstabe;
-    document.getElementById("wort").textContent = daten.wort;
 
-    const bild = document.getElementById("bild");
-    bild.src = daten.bild;
-    bild.alt = daten.buchstabe + " wie " + daten.wort;
+    let karte =
+      parameter.get("karte");
 
-    document.getElementById("button-buchstabe").onclick = function() {
-      sprechen(daten.laut);
-    };
 
-    document.getElementById("button-wort").onclick = function() {
-      sprechen(daten.wortText);
-    };
+    if (karte) {
 
-    document.getElementById("button-geschichte").onclick = function() {
-      sprechen(daten.geschichte);
-    };
+      karte =
+        karte.toUpperCase();
+
+    }
+
+
+    /* Alte Test-Adressen weiterhin unterstützen */
+
+    if (karte === "A") {
+      karte = "AFFE";
+    }
+
+    if (karte === "D") {
+      karte = "DRACHE";
+    }
+
+    if (karte === "F") {
+      karte = "FURZ";
+    }
+
+    if (karte === "G") {
+      karte = "GEIST";
+    }
+
+    if (karte === "H") {
+      karte = "HAI";
+    }
+
+    if (karte === "I") {
+      karte = "IGEL";
+    }
+
+    if (karte === "K") {
+      karte = "KOENIG";
+    }
+
+    if (karte === "L") {
+      karte = "LOEWE";
+    }
+
+    if (karte === "N") {
+      karte = "NUDELN";
+    }
+
+    if (karte === "O") {
+      karte = "OMA";
+    }
+
+    if (karte === "P") {
+      karte = "PIZZA";
+    }
+
+    if (karte === "R") {
+      karte = "RATTE";
+    }
+
+    if (karte === "SCH") {
+      karte = "SCHEISSE";
+    }
+
+    if (karte === "U") {
+      karte = "UNGEHEUER";
+    }
+
+
+    const daten =
+      karten[karte] || karten.AFFE;
+
+
+    document
+      .getElementById("buchstabe")
+      .textContent =
+      daten.buchstabe;
+
+
+    document
+      .getElementById("wort")
+      .textContent =
+      daten.wort;
+
+
+    const bild =
+      document.getElementById("bild");
+
+
+    bild.src =
+      daten.bild;
+
+
+    bild.alt =
+      daten.buchstabe +
+      " wie " +
+      daten.wort;
+
+
+    document
+      .getElementById("button-buchstabe")
+      .onclick =
+      function() {
+
+        sprechen(daten.laut);
+
+      };
+
+
+    document
+      .getElementById("button-wort")
+      .onclick =
+      function() {
+
+        sprechen(daten.wortText);
+
+      };
+
+
+    document
+      .getElementById("button-geschichte")
+      .onclick =
+      function() {
+
+        sprechen(daten.geschichte);
+
+      };
+
   </script>
 
 </body>

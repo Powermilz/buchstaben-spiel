@@ -52,6 +52,7 @@
 </button>
 
 <script>
+ <script>
   function sprechen(text) {
     window.speechSynthesis.cancel();
 
@@ -61,6 +62,14 @@
 
     window.speechSynthesis.speak(stimme);
   }
+
+  const parameter = new URLSearchParams(window.location.search);
+  const karte = parameter.get("karte");
+
+  if (karte) {
+    console.log("Aufgerufene Karte:", karte);
+  }
+</script>
 </script>
 
 </body>
